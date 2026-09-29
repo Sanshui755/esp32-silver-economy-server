@@ -1,0 +1,28 @@
+# ============================================================
+# Mosquitto ACL —— 智聊·老年关怀模块
+# 主题权限最小化：老年端只能发自己的事件、收自己的命令；
+# 后端服务拥有全主题权限；子女端 APP 直连默认不启用。
+# ============================================================
+
+# ---- 后端服务：全主题读写 ----
+user zhiliao-server
+topic readwrite zhiliao/v1/#
+
+# ---- 老年端：每人一条（由 scripts/generate-mqtt-passwd.sh 按elder表自动生成）----
+# 模板（elderId 替换为实际值）：
+# user elder_xxx
+# topic write zhiliao/v1/elder/elder_xxx/event/#
+# topic write zhiliao/v1/elder/elder_xxx/status
+# topic read  zhiliao/v1/elder/elder_xxx/command
+
+# ---- 老年端设备账号（elder_001 / MAC 90:70:69:f7:f1:44）----
+user elder_001
+topic write zhiliao/v1/elder/elder_001/event/#
+topic write zhiliao/v1/elder/elder_001/status
+topic read  zhiliao/v1/elder/elder_001/command
+
+# ---- 老年端设备账号（elder_1a593e2d8acd / MAC 90:70:69:f7:f1:44）----
+user elder_1a593e2d8acd
+topic write zhiliao/v1/elder/elder_1a593e2d8acd/event/#
+topic write zhiliao/v1/elder/elder_1a593e2d8acd/status
+topic read  zhiliao/v1/elder/elder_1a593e2d8acd/command
