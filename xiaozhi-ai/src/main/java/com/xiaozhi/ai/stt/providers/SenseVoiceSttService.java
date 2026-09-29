@@ -44,8 +44,9 @@ public class SenseVoiceSttService implements SttService {
 
     private static final String PROVIDER_NAME = "sherpa-onnx";
     private static final int QUEUE_TIMEOUT_MS = 100;
-    // 上游未终结音频流时的兜底上限，需远大于设备上行抖动，否则弱网会截断用户没说完的话
-    private static final long IDLE_TIMEOUT_MS = 5000;
+    // 上游未终结音频流时的兜底上限，需远大于设备上行抖动，否则弱网会截断用户没说完的话。
+    // 实测弱 Wi-Fi 下设备上行会停 3~8 秒再恢复，5s 必然把一句话截成两段，放宽到 10s
+    private static final long IDLE_TIMEOUT_MS = 10_000;
     // 从开口起算的单轮总时长上限，与其它 provider 口径一致；分段拼接每 60 秒换一条流，正常到不了这里
     private static final long RECOGNITION_TIMEOUT_MS = 90_000;
     private static final int PENDING_DECODES = 64;
