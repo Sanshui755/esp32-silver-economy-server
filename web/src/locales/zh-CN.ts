@@ -880,7 +880,6 @@ export default {
       ttsConfig: '语音合成配置',
       ossConfig: '存储配置',
       memoryManagement: '记忆管理',
-    careManagement: '老年关怀',
       conversationRecords: '对话记录',
       careElder: '老人管理',
       careEvent: '事件中心',
@@ -897,6 +896,7 @@ export default {
       configManagement: '配置管理',
       settings: '设置',
       memoryManagement: '记忆管理',
+      careManagement: '老年关怀',
     },
   },
 

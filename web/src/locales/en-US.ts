@@ -881,7 +881,6 @@ export default {
       ttsConfig: 'TTS Configuration',
       ossConfig: 'Storage Configuration',
       memoryManagement: 'Memory Management',
-      careManagement: 'Elderly Care',
       conversationRecords: 'Conversation Records',
       careElder: 'Elders',
       careEvent: 'Care Events',
@@ -898,6 +897,7 @@ export default {
       configManagement: 'Configuration',
       settings: 'Settings',
       memoryManagement: 'Memory Management',
+      careManagement: 'Elderly Care',
     },
   },
 
